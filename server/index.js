@@ -31,7 +31,7 @@ db.connect(err => {
 // Inicia el servidor HTTP en el puerto 5003
 // const port = process.env.PORT || 5003;
 const server = app.listen(5003, '0.0.0.0', () => {
-  console.log('Servidor Express iniciado en http://0.0.0.0:5003');
+  console.log('Servidor Express iniciado en http://0.0.0.0:80');
 });
 
 // Inicia el servidor WebSocket
@@ -85,20 +85,20 @@ app.post('/actualizar-slider', (req, res) => {
   //     console.log('No hay conexión con la ESP32');
   //   }
 
-    
+
 
   //   res.send('Valor del slider actualizado correctamente y enviado a la ESP32');
   // });
   // Si la ESP32 está conectada, enviamos el valor directamente
-    if (esp32Socket) {
-      esp32Socket.send(JSON.stringify({ ref_remota: sliderValue }));
-      console.log('Valor de Ref_remota enviado a la ESP32:', sliderValue);
-      res.send(sliderValue);
-    }else{
-      console.log('No hay conexión con la ESP32');
-    }    
+  if (esp32Socket) {
+    esp32Socket.send(JSON.stringify({ ref_remota: sliderValue }));
+    console.log('Valor de Ref_remota enviado a la ESP32:', sliderValue);
+    res.send(sliderValue);
+  } else {
+    console.log('No hay conexión con la ESP32');
+  }
 
-    
+
 });
 
 // Ruta para obtener los datos más recientes para las gráficas

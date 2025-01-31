@@ -28,7 +28,7 @@ function App() {
 
     // Enviar el valor del slider al servidor inmediatamente
     console.log('Enviando valor del slider:', newValue);
-    axios.post('http://192.168.1.6:5003/actualizar-slider', { sliderValue: newValue })
+    axios.post('https://interfaz-1-cx1c.onrender.com/:80/actualizar-slider', { sliderValue: newValue })
       .then(response => {
         console.log('Valor del slider enviado:', response.data);
       })
@@ -40,7 +40,7 @@ function App() {
   // Obtener datos desde el servidor cada segundo
   useEffect(() => {
     const fetchData = () => {
-      axios.get('http://172.29.17.112:5003/datos') // Asegúrate de que esta URL sea la correcta
+      axios.get('https://interfaz-1-cx1c.onrender.com/:80/datos') // Asegúrate de que esta URL sea la correcta
         .then(response => {
           // Verificar si los datos están vacíos
           if (response.data.length === 0) {
