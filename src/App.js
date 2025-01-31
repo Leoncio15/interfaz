@@ -8,6 +8,25 @@ import GaugeChart from 'react-gauge-chart'; // Importar la biblioteca de gauges
 import CustomGauge from './CustomGauge'; // Importa el nuevo componente
 
 function App() {
+
+  const socket = new WebSocket('wss://interfaz.fly.dev:5003');
+
+  socket.onopen = () => {
+    console.log('Conectado al servidor WebSocket');
+  };
+
+  socket.onmessage = (event) => {
+    console.log(`Mensaje del servidor: ${event.data}`);
+  };
+
+  socket.onclose = () => {
+    console.log('Desconectado del servidor WebSocket');
+  };
+
+  socket.onerror = (error) => {
+    console.error('Error en la conexión WebSocket:', error);
+  }
+
   const [sliderValue, setSliderValue] = useState(50);
   const [values, setValues] = useState({
     Kp: 0.0,
