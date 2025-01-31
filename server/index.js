@@ -30,7 +30,7 @@ db.connect(err => {
 
 // Inicia el servidor HTTP en el puerto 5003
 // const port = process.env.PORT || 5003;
-const server = app.listen(5003, '0.0.0.0', () => {
+const server = app.listen(80, '0.0.0.0', () => {
   console.log('Servidor Express iniciado en http://0.0.0.0:80');
 });
 
