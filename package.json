@@ -21,7 +21,10 @@
     "web-vitals": "^2.1.4",
     "ws": "^8.18.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "npm run start",
+    "server": "node index.js"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
